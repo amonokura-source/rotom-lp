@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROTOM — インフルエンサーキャスティング</title>
+
+<!-- ⑤ OGP設定 -->
+<meta property="og:title" content="ROTOM — インフルエンサーキャスティング">
+<meta property="og:description" content="広告代理店・PR会社向けのキャスティングパートナー。フォロワー数だけでは測れない信頼性と実行力を基準に、企画段階からご相談いただけます。">
+<meta property="og:image" content="ogp.png">
+<meta property="og:url" content="https://rotom.co.jp">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ROTOM">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ROTOM — インフルエンサーキャスティング">
+<meta name="twitter:description" content="広告代理店・PR会社向けのキャスティングパートナー。企画段階からご相談いただけます。">
+<meta name="twitter:image" content="ogp.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1a2e52;--navy-dark:#111e38;--blue:#2563eb;--white:#fff;
+  --bg:#f7f9fc;--bg2:#eef2fb;--text:#1c2340;--text-mid:#4a5270;
+  --text-light:#7a82a0;--border:#dde4f0;--accent:#2563eb;
+  --radius:8px;--shadow:0 2px 16px rgba(26,46,82,.07);
+  --shadow-md:0 6px 32px rgba(26,46,82,.13);
+  --font-ja:'Noto Sans JP',sans-serif;--font-en:'Plus Jakarta Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--text);font-family:var(--font-ja);font-weight:400;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:62px}
+.nav-logo img{height:36px;width:auto;display:block}
+.nav-links{display:flex;align-items:center;gap:1.75rem}
+.nav-links a{font-size:.8rem;color:var(--text-mid);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-cta{background:var(--accent)!important;color:#fff!important;padding:.42rem 1.15rem;border-radius:var(--radius);font-weight:600!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--navy)!important}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#111e38 0%,#1a2e52 50%,#1d4ed8 100%);color:#fff;padding:4.5rem 5%;position:relative;overflow:hidden;min-height:88vh;display:flex;align-items:center}
+.hero-overlay{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80&auto=format&fit=crop') center/cover no-repeat;opacity:.06}
+.hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:1;width:100%}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:100px;font-size:.7rem;letter-spacing:.12em;padding:.32rem .9rem;margin-bottom:1.4rem;font-family:var(--font-en);font-weight:500}
+.hero h1{font-size:clamp(1.75rem,3.5vw,3rem);font-weight:700;line-height:1.3;margin-bottom:1.25rem;max-width:640px}
+.hero h1 em{font-style:normal;color:#93c5fd}
+.hero-sub{font-size:.92rem;color:rgba(255,255,255,.72);line-height:1.9;margin-bottom:2rem;max-width:500px}
+.hero-ctas{display:flex;gap:.875rem;flex-wrap:wrap}
+.btn-white{background:#fff;color:var(--navy);font-size:.82rem;font-weight:700;padding:.7rem 1.6rem;border-radius:var(--radius);text-decoration:none;transition:transform .15s,box-shadow .2s;box-shadow:0 4px 14px rgba(0,0,0,.15);display:inline-block}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn-outline-w{background:transparent;color:#fff;font-size:.82rem;padding:.7rem 1.4rem;border-radius:var(--radius);border:1.5px solid rgba(255,255,255,.38);text-decoration:none;transition:background .2s;display:inline-block}
+.btn-outline-w:hover{background:rgba(255,255,255,.1)}
+
+/* SECTION BASE */
+section{padding:5rem 5%}
+.section-inner{max-width:1080px;margin:0 auto}
+.section-label{font-family:var(--font-en);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:.5rem;display:block}
+.section-title{font-size:clamp(1.45rem,2.4vw,1.9rem);font-weight:700;line-height:1.35;color:var(--navy);margin-bottom:.85rem}
+.section-desc{font-size:.88rem;color:var(--text-light);line-height:1.88;max-width:560px}
+
+/* PAIN */
+.pain{background:var(--bg)}
+.pain-layout{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.pain-photo{border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3}
+.pain-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.pain-list{display:grid;gap:.6rem;margin-top:1.25rem}
+.pain-item{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.1rem;display:flex;gap:.875rem;align-items:flex-start;transition:box-shadow .2s,transform .2s}
+.pain-item:hover{box-shadow:var(--shadow);transform:translateX(4px)}
+.pain-icon{width:36px;height:36px;flex-shrink:0;border-radius:8px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.pain-item h3{font-size:.83rem;font-weight:600;color:var(--navy);margin-bottom:.15rem}
+.pain-item p{font-size:.76rem;color:var(--text-light);line-height:1.65}
+
+/* SOLUTION */
+.solution{background:#fff}
+.solution-cols{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:center}
+.sol-photo{border-radius:12px;overflow:hidden;box-shadow:var(--shadow-md);aspect-ratio:4/3}
+.sol-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.sol-features{display:grid;gap:.75rem;margin-top:1.25rem}
+.sol-feat{display:flex;gap:.875rem;align-items:flex-start;padding:.9rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius);transition:border-color .2s,box-shadow .2s}
+.sol-feat:hover{border-color:#b8ccee;box-shadow:0 2px 10px rgba(37,99,235,.07)}
+.sol-icon{width:36px;height:36px;flex-shrink:0;border-radius:8px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:.95rem}
+.sol-feat strong{display:block;font-size:.83rem;font-weight:600;color:var(--navy);margin-bottom:.15rem}
+.sol-feat p{font-size:.76rem;color:var(--text-light);line-height:1.65}
+
+/* TALENT */
+.talent{background:var(--bg)}
+.talent-note{display:inline-block;font-size:.7rem;color:var(--text-light);background:#fff;border:1px solid var(--border);border-radius:100px;padding:.25rem .85rem;margin-top:.5rem}
+.talent-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:2rem;align-items:start}
+.talent-main{border-radius:12px;overflow:hidden;position:relative;box-shadow:var(--shadow-md)}
+.talent-main img{width:100%;object-fit:cover;display:block;aspect-ratio:2/3}
+.talent-main-overlay{position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(17,30,56,.88) 100%)}
+.talent-main-info{position:absolute;bottom:0;left:0;right:0;padding:1.5rem}
+.talent-main-badge{display:inline-block;background:rgba(255,255,255,.92);font-size:.6rem;font-weight:700;letter-spacing:.08em;color:var(--accent);padding:.2rem .65rem;border-radius:100px;font-family:var(--font-en);margin-bottom:.5rem}
+.talent-main-name{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.talent-main-meta{font-size:.72rem;color:rgba(255,255,255,.75);margin-bottom:.5rem}
+.talent-main-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.talent-main-tag{font-size:.62rem;background:rgba(255,255,255,.18);color:#fff;padding:.18rem .55rem;border:1px solid rgba(255,255,255,.28)}
+.talent-sub-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.talent-card{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:#fff;transition:box-shadow .2s,transform .2s}
+.talent-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.talent-img{aspect-ratio:1/1;overflow:hidden;position:relative}
+.talent-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.talent-card:hover .talent-img img{transform:scale(1.06)}
+.talent-genre-badge{position:absolute;top:.6rem;left:.6rem;background:rgba(255,255,255,.92);border-radius:100px;font-size:.6rem;font-weight:700;letter-spacing:.07em;color:var(--accent);padding:.2rem .65rem;font-family:var(--font-en)}
+.talent-body{padding:.85rem 1rem}
+.talent-name{font-size:.85rem;font-weight:700;color:var(--navy);margin-bottom:.15rem}
+.talent-meta{font-size:.7rem;color:var(--text-light);margin-bottom:.4rem}
+.talent-tags{display:flex;flex-wrap:wrap;gap:.25rem}
+.talent-tag{font-size:.6rem;background:var(--bg2);color:var(--text-mid);border-radius:100px;padding:.18rem .55rem;border:1px solid var(--border)}
+
+/* BRANDS */
+.brands{background:#fff}
+.brands-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-top:2rem}
+.brand-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:1.75rem;transition:box-shadow .2s,transform .2s;display:flex;flex-direction:column;gap:1rem}
+.brand-card:hover{box-shadow:var(--shadow-md);transform:translateY(-3px)}
+.brand-card-head{display:flex;align-items:center;gap:1rem}
+.brand-card-icon{width:44px;height:44px;border-radius:10px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.brand-card-type{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-family:var(--font-en);margin-bottom:.2rem}
+.brand-card-name{font-size:.92rem;font-weight:700;color:var(--navy)}
+.brand-card-body p{font-size:.79rem;color:var(--text-mid);line-height:1.8}
+.brand-card-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.5rem}
+.brand-tag{font-size:.65rem;background:var(--bg2);color:var(--accent);border:1px solid var(--border);border-radius:100px;padding:.2rem .7rem;font-weight:600}
+.brands-note{font-size:.7rem;color:var(--text-light);margin-top:1rem;padding:.6rem .9rem;background:var(--bg);border-radius:var(--radius);border-left:3px solid var(--border)}
+
+/* WORKFLOW + FAQ */
+.bottom{background:var(--bg)}
+.bottom-cols{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.workflow-steps{display:grid;gap:0;margin-top:1.5rem}
+.wf-step{display:grid;grid-template-columns:2.25rem 1fr;gap:.75rem;padding:1rem 0;border-bottom:1px solid var(--border);align-items:start}
+.wf-step:first-child{border-top:1px solid var(--border)}
+.wf-num{width:32px;height:32px;background:var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-en);font-size:.7rem;font-weight:700;color:#fff;flex-shrink:0}
+.wf-step h3{font-size:.83rem;font-weight:700;color:var(--navy);margin-bottom:.15rem}
+.wf-step p{font-size:.75rem;color:var(--text-light);line-height:1.65}
+.faq-list{display:grid;gap:0;margin-top:1.5rem}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-child{border-top:1px solid var(--border)}
+.faq-q{width:100%;background:none;border:none;cursor:pointer;text-align:left;padding:1rem 0;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-family:var(--font-ja);font-size:.83rem;font-weight:600;color:var(--navy);transition:color .2s}
+.faq-q:hover{color:var(--accent)}
+.faq-icon{font-size:.9rem;color:var(--text-light);transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-icon{transform:rotate(45deg);color:var(--accent)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.79rem;color:var(--text-mid);line-height:1.8;padding:0}
+.faq-item.open .faq-a{max-height:200px;padding:.3rem 0 .9rem}
+
+/* ② 料金バナー */
+.price-banner{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--radius);padding:1rem 1.25rem;
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.5rem;flex-wrap:wrap;
+}
+.price-banner-badge{
+  background:var(--accent);color:#fff;
+  font-family:var(--font-en);font-size:.65rem;font-weight:700;
+  letter-spacing:.1em;padding:.3rem .75rem;border-radius:100px;white-space:nowrap;
+}
+.price-banner p{font-size:.82rem;color:var(--text-mid);line-height:1.6}
+.price-banner strong{color:var(--navy)}
+
+/* CTA */
+.cta-section{background:var(--navy-dark);padding:6rem 5%}
+.cta-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 280px;gap:4rem;align-items:start}
+.cta-logo{margin-bottom:1.75rem}
+.cta-logo img{height:40px;width:auto;filter:brightness(0) invert(1);opacity:.55}
+.cta-label{font-family:var(--font-en);font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.1rem;display:block}
+.cta-quote{font-size:clamp(1.25rem,2.3vw,1.75rem);font-weight:700;color:#fff;line-height:1.5;margin-bottom:1.25rem}
+.cta-quote em{font-style:normal;color:#93c5fd}
+.cta-message{font-size:.86rem;color:rgba(255,255,255,.62);line-height:1.95;margin-bottom:1.75rem}
+.cta-mail{font-family:var(--font-en);font-size:.78rem;color:rgba(255,255,255,.35);text-decoration:none;letter-spacing:.05em;border-bottom:1px solid rgba(255,255,255,.12);padding-bottom:.12rem;transition:color .2s,border-color .2s;display:inline-block}
+.cta-mail:hover{color:#fff;border-color:#fff}
+.cta-photo-wrap{position:relative;text-align:center;padding-top:1rem}
+.cta-photo{width:220px;height:220px;border-radius:50%;overflow:hidden;box-shadow:0 12px 40px rgba(0,0,0,.4);margin:0 auto;border:3px solid rgba(255,255,255,.15)}
+.cta-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block}
+.cta-name-card{margin-top:1.25rem;text-align:center}
+.cta-name-card strong{display:block;font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.2rem}
+.cta-name-card .title{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.05em;display:block;margin-bottom:.75rem}
+.cta-name-card .bio{font-size:.74rem;color:rgba(255,255,255,.55);line-height:1.75;text-align:left}
+
+/* ③ 会社概要セクション */
+.company-section{background:var(--navy-dark);border-top:1px solid rgba(255,255,255,.08)}
+.company-section .section-label{color:rgba(255,255,255,.4)}
+.company-section .section-title{color:#fff}
+.company-layout{display:grid;grid-template-columns:280px 1fr;gap:4rem;align-items:start;margin-top:2.5rem}
+.company-logo-col{position:sticky;top:6rem}
+.company-logo-img{height:56px;width:auto;display:block;margin-bottom:1.5rem;filter:brightness(0) invert(1);opacity:.7}
+.company-tagline{font-family:var(--font-en);font-size:.75rem;color:rgba(255,255,255,.35);line-height:1.7;letter-spacing:.04em}
+.company-table{width:100%;border-collapse:collapse}
+.company-table tr{border-bottom:1px solid rgba(255,255,255,.08)}
+.company-table tr:first-child{border-top:1px solid rgba(255,255,255,.08)}
+.company-table th{font-size:.78rem;font-weight:600;color:rgba(255,255,255,.45);padding:1rem 1rem 1rem 0;text-align:left;vertical-align:top;width:140px;white-space:nowrap}
+.company-table td{font-size:.82rem;color:rgba(255,255,255,.75);padding:1rem 0;line-height:1.8;vertical-align:top}
+.company-table a{color:#93c5fd}
+
+/* FOOTER */
+footer{background:#0d1626;color:rgba(255,255,255,.35);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.footer-logo img{height:28px;width:auto;filter:brightness(0) invert(1);opacity:.45}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{font-size:.7rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:rgba(255,255,255,.75)}
+.footer-copy{font-size:.68rem}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.08s}.rd2{transition-delay:.16s}.rd3{transition-delay:.24s}.rd4{transition-delay:.32s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .pain-layout,.solution-cols,.bottom-cols{grid-template-columns:1fr;gap:2.25rem}
+  .talent-layout{grid-template-columns:1fr}
+  .talent-main img{aspect-ratio:16/9}
+  .talent-sub-grid{grid-template-columns:repeat(2,1fr)}
+  .brands-grid{grid-template-columns:1fr}
+  section{padding:4rem 4%}
+  .nav-links{display:none}
+  .cta-inner{grid-template-columns:1fr;gap:2.5rem}
+  .cta-photo-wrap{order:-1;padding-top:0}
+  .cta-section{padding:4.5rem 4%}
+  .company-layout{grid-template-columns:1fr;gap:2rem}
+  .company-logo-col{position:relative;top:auto}
+  .company-table th{width:120px}
+}
+@media(max-width:540px){
+  .talent-sub-grid{grid-template-columns:1fr 1fr}
+  .hero h1{font-size:1.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="ロゴデータ（切り抜き）.PNG" alt="ROTOM" style="height:60px;width:auto">
+  </a>
+  <div class="nav-links">
+    <a href="#pain">よくあるお悩み</a>
+    <a href="#solution">業務内容</a>
+    <a href="#brands">キャスティング実績</a>
+    <a href="#contact" class="nav-cta">お問い合わせ</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Influencer Casting &amp; Strategy</div>
+    <h1><em>安心して任せられる</em><br>インフルエンサーキャスティングを。</h1>
+    <p class="hero-sub">フォロワー数だけでは測れない「信頼性」と「実行力」を基準に、広告代理店・PR会社向けのキャスティングを提供します。企画段階からご相談いただけます。</p>
+    <div class="hero-ctas">
+      <a href="https://forms.gle/7syZTNM14S3VDG7Y8" target="_blank" class="btn-white">無料相談を申し込む</a>
+      <a href="#solution" class="btn-outline-w">詳しく見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain" id="pain">
+  <div class="section-inner">
+    <div class="pain-layout">
+      <div class="reveal">
+        <div class="pain-photo">
+          <img src="フリー素材_会議_順調.png" alt="担当者の悩み">
+        </div>
+      </div>
+      <div class="reveal rd1">
+        <span class="section-label">Common Challenges</span>
+        <h2 class="section-title">こんなお悩み、<br>ありませんか？</h2>
+        <p class="section-desc" style="margin-bottom:1.25rem">インフルエンサー施策を担当するご担当者様からよくいただく声です。</p>
+        <div class="pain-list">
+          <div class="pain-item">
+            <div class="pain-icon">⌛️</div>
+            <div><h3>返信が遅く、進行が止まる</h3><p>レスポンス遅延・連絡不通でスケジュールが乱れる。</p></div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">🔄</div>
+            <div><h3>急な修正・変更への対応が困難</h3><p>投稿直前の変更に柔軟に動ける窓口がない。</p></div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">📋</div>
+            <div><h3>企画意図がうまく伝わらない</h3><p>ブランドのメッセージが理解されないまま制作が進む。</p></div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">🔍</div>
+            <div><h3>信頼できる人材の見極めが難しい</h3><p>フォロワー数だけでは実行力・適合性が分からない。</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution" id="solution">
+  <div class="section-inner">
+    <div class="solution-cols">
+      <div class="reveal">
+        <span class="section-label">Our Solution</span>
+        <h2 class="section-title">キャスティングで<br>終わらせない。<br>企画から伴走します。</h2>
+        <p class="section-desc">単なる仲介ではなく、企画・キャスティング・実行まで一貫してサポート。代理店の現場を理解した動き方で担当者の負担を軽減します。</p>
+        <div class="sol-features">
+          <div class="sol-feat">
+            <div class="sol-icon">🤝</div>
+            <div><strong>インフルエンサーとの直接的な距離感</strong><p>日常的な信頼関係があるから、急な対応も可能です。</p></div>
+          </div>
+          <div class="sol-feat">
+            <div class="sol-icon">💡</div>
+            <div><strong>企画段階からの設計参加</strong><p>「何を伝えるか」から一緒に考え、企画パートナーとしてサポートいたします。</p></div>
+          </div>
+          <div class="sol-feat">
+            <div class="sol-icon">🗂️</div>
+            <div><strong>代理店業務を理解した動き方</strong><p>承認フロー・コンプライアンス・進行管理も現場目線で対応。</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal rd2">
+        <div class="sol-photo">
+          <img src="フリー素材_会議_難航.png" alt="企画作業">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TALENT -->
+<section class="talent" id="talent">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Talent Archive</span>
+      <h2 class="section-title">幅広いジャンル・規模感に対応</h2>
+      <span class="talent-note">※ 掲載情報はサンプルです。案件ごとに最適なプロフィールをご提案します。</span>
+    </div>
+    <div class="talent-layout">
+      <div class="talent-main reveal rd1">
+        <img src="フリー素材_ファッション2.png" alt="Fashion Creator">
+        <div class="talent-main-overlay"></div>
+        <div class="talent-main-info">
+          <span class="talent-main-badge">Fashion / Lifestyle</span>
+          <p class="talent-main-name">Creator A</p>
+          <p class="talent-main-meta">401k+ followers</p>
+          <div class="talent-main-tags">
+            <span class="talent-main-tag">ファッション</span>
+            <span class="talent-main-tag">ライフスタイル</span>
+          </div>
+        </div>
+      </div>
+      <div class="talent-sub-grid reveal rd2">
+        <div class="talent-card">
+          <div class="talent-img">
+            <img src="フリー素材_美容.png" alt="Beauty">
+            <span class="talent-genre-badge">Beauty</span>
+          </div>
+          <div class="talent-body">
+            <p class="talent-name">Creator B</p>
+            <p class="talent-meta">300K+ followers</p>
+            <div class="talent-tags"><span class="talent-tag">コスメ</span><span class="talent-tag">スキンケア</span></div>
+          </div>
+        </div>
+        <div class="talent-card">
+          <div class="talent-img">
+            <img src="フリー素材_フィットネス.png" alt="Sports">
+            <span class="talent-genre-badge">Sports</span>
+          </div>
+          <div class="talent-body">
+            <p class="talent-name">Creator C</p>
+            <p class="talent-meta">255K+ followers</p>
+            <div class="talent-tags"><span class="talent-tag">スポーツ</span><span class="talent-tag">フィットネス</span></div>
+          </div>
+        </div>
+        <div class="talent-card">
+          <div class="talent-img">
+            <img src="フリー素材_料理系インフルエンサー.png" alt="Food">
+            <span class="talent-genre-badge">Food</span>
+          </div>
+          <div class="talent-body">
+            <p class="talent-name">Creator D</p>
+            <p class="talent-meta">56K+ followers</p>
+            <div class="talent-tags"><span class="talent-tag">グルメ</span><span class="talent-tag">旅行</span></div>
+          </div>
+        </div>
+        <div class="talent-card">
+          <div class="talent-img">
+            <img src="フリー素材_教育系インフルエンサー.png" alt="Business">
+            <span class="talent-genre-badge">Business/Education</span>
+          </div>
+          <div class="talent-body">
+            <p class="talent-name">Creator E</p>
+            <p class="talent-meta">130K+ followers</p>
+            <div class="talent-tags"><span class="talent-tag">ビジネス</span><span class="talent-tag">教育</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<section class="brands" id="brands">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Past Collaborations</span>
+      <h2 class="section-title">案件の過去実績</h2>
+    </div>
+    <div class="brands-grid reveal rd1">
+      <div class="brand-card">
+        <div class="brand-card-head">
+          <div class="brand-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div>
+            <p class="brand-card-type">Energy Drink</p>
+            <p class="brand-card-name">某大手エナジードリンクブランド</p>
+          </div>
+        </div>
+        <div class="brand-card-body"><p>PRイベントへのメインインフルエンサーキャスティングを担当。その後も継続的な関係が構築され、現在も同ブランドのイベントに主要クリエイターとして起用されている。</p></div>
+        <div class="brand-card-tags"><span class="brand-tag">PRイベント</span><span class="brand-tag">継続キャスティング</span></div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-head">
+          <div class="brand-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div>
+            <p class="brand-card-type">Electronics</p>
+            <p class="brand-card-name">某大手国内家電メーカー</p>
+          </div>
+        </div>
+        <div class="brand-card-body"><p>数十万人の登録者を持つYouTubeチャンネルへの製品紹介動画のキャスティングを実施。Instagram等のSNS投稿も複数キャスティングし、複合的なプロモーションを展開。</p></div>
+        <div class="brand-card-tags"><span class="brand-tag">YouTube</span><span class="brand-tag">Instagram</span><span class="brand-tag">複合SNS</span></div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-head">
+          <div class="brand-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div>
+            <p class="brand-card-type">Beauty / Cosmetics</p>
+            <p class="brand-card-name">某グローバル精密機器系美容ブランド</p>
+          </div>
+        </div>
+        <div class="brand-card-body"><p>PRイベントへのゲストキャスティングを担当。加えてInstagram等のSNS投稿も多数キャスティングし、ブランド認知拡大に向けた継続的な施策をサポート。</p></div>
+        <div class="brand-card-tags"><span class="brand-tag">PRイベント</span><span class="brand-tag">Instagram</span><span class="brand-tag">ブランディング</span></div>
+      </div>
+      <div class="brand-card">
+        <div class="brand-card-head">
+          <div class="brand-card-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div>
+            <p class="brand-card-type">Sports / Lifestyle</p>
+            <p class="brand-card-name">某外資系スポーツライフスタイルブランド</p>
+          </div>
+        </div>
+        <div class="brand-card-body"><p>総フォロワー数300万人超のインフルエンサーを一堂に集めたブランドイベントを企画・キャスティング。大規模な拡散施策として実施。</p></div>
+        <div class="brand-card-tags"><span class="brand-tag">大規模イベント</span><span class="brand-tag">300万+ リーチ</span></div>
+      </div>
+    </div>
+    <p class="brands-note reveal rd2">※ 守秘義務の観点からブランド名は非開示としています。</p>
+  </div>
+</section>
+
+<!-- WORKFLOW + FAQ -->
+<section class="bottom" id="workflow">
+  <div class="section-inner">
+    <div class="bottom-cols">
+      <div class="reveal">
+        <span class="section-label">Workflow</span>
+        <h2 class="section-title">ご依頼の流れ</h2>
+        <div class="workflow-steps">
+          <div class="wf-step"><div class="wf-num">01</div><div><h3>初回相談（無料）</h3><p>案件概要・目的・予算感を共有。企画段階からOK。</p></div></div>
+          <div class="wf-step"><div class="wf-num">02</div><div><h3>候補者提案</h3><p>ブランド適合性・実行力を基準にご提案します。</p></div></div>
+          <div class="wf-step"><div class="wf-num">03</div><div><h3>ブリーフィング</h3><p>企画意図をインフルエンサーへ正確に共有。</p></div></div>
+          <div class="wf-step"><div class="wf-num">04</div><div><h3>実施・完了</h3><p>制作・投稿・修正対応まで伴走します。</p></div></div>
+        </div>
+      </div>
+      <div class="reveal rd2">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">よくある質問</h2>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-q"><span>費用の目安を教えてください。</span><span class="faq-icon">+</span></button>
+            <div class="faq-a">キャスティング費用は案件規模・インフルエンサーの規模・業務範囲によって異なりますが、目安として<strong>10万円〜</strong>でご対応しています。まずは無料相談でご要件・予算感をお聞きした上でお見積もりいたします。予算が合わない場合もお気軽にご相談ください。</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span>1案件から相談できますか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a">はい、1案件からご対応いたします。規模を問わず、まずはお気軽にご相談ください。</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span>企画段階からの相談は可能ですか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a">大歓迎です。「どのインフルエンサーを使えばいいか分からない」という段階でもOKです。企画から一緒に設計いたします。</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span>NDAの締結は可能ですか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a">対応しております。案件・クライアント情報は厳格に管理しています。</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span>対応できるインフルエンサーの規模は？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a">マイクロ（1万〜）からマクロ（100万以上）まで対応可能です。案件の目的・予算に合わせて最適な規模をご提案いたします。</div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q"><span>広告代理店以外からの依頼も可能ですか？</span><span class="faq-icon">+</span></button>
+            <div class="faq-a">はい、PR会社・事業会社のマーケティング担当者様からのご依頼もお待ちしております。まずはご相談ください。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA / 代表メッセージ -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="reveal">
+      <div class="cta-logo">
+        <img src="ROTOM ロゴ2.png" alt="ROTOM" style="height:100px;width:auto;filter:brightness(0) invert(1);opacity:.45">
+      </div>
+      <span class="cta-label">Our Philosophy</span>
+      <p class="cta-quote">「信頼できる人を、<br>必要な場所へ届ける」—<br>それが<em>ROTOMの存在意義</em>です。</p>
+      <p class="cta-message">インフルエンサーマーケティング市場が拡大する一方で、業界では“数字だけでは見えない信用”の重要性が高まっています。
+ROTOMは、「この人なら安心して任せられる」という信頼まで含めて届けることを大切にしています。
+クライアント・インフルエンサー双方にとって、「また一緒に仕事をしたい」と思える継続的な関係を築き、ブランドとインフルエンサーが長く信頼関係を育んでいける出会いを生み出す存在でありたいと考えています。</p>
+
+      <div class="cta-btns">
+        <a href="https://forms.gle/7syZTNM14S3VDG7Y8" target="_blank" class="btn-white">お問い合わせはこちら</a>
+      </div>
+      <a href="mailto:info@rotom.co.jp" class="cta-mail"><br>直接メールもお待ちしております。 →  info@rotom.co.jp</a>
+    </div>
+    <div class="cta-photo-wrap reveal rd2">
+      <div class="cta-photo">
+        <img src="代表写真.jpg" alt="代表 大倉亞門">
+      </div>
+      <div class="cta-name-card">
+        <strong>大倉 亞門</strong>
+        <span class="title">代表 / 合同会社ROTOM</span>
+        <p class="bio">　京都府出身。広告代理店・飲食事業を経て、現在は自身もインフルエンサーとして活動しながら、インフルエンサーマーケティング領域を中心に事業を展開。代理店・広告主・インフルエンサーという三つの立場を経験してきた中で、それぞれの視点や課題を深く理解し、現場感覚を大切にしたキャスティング・プロモーション支援を行っている。
+          <br>　特にインフルエンサーの皆様とは、できる限り直接お会いすることを大切にしています。
+フォロワー数や投稿だけでは分からない、人としての誠実さや現場での空気感は、実際に会って初めて見える部分も多いと感じているためです。
+<br>　会ったことのない人同士が仕事を進めることも多い業界だからこそ、ROTOMでは“信頼して任せられる人か”を重視し、双方にとって「また一緒に仕事をしたい」と思える関係づくりを目指しています。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 会社概要 -->
+<section class="company-section" id="company">
+  <div class="section-inner">
+    <div class="reveal">
+      <span class="section-label">Company</span>
+      <h2 class="section-title">会社概要</h2>
+    </div>
+    <div class="company-layout reveal rd1">
+      <div class="company-logo-col">
+       
+      </div>
+      <div class="company-table-col">
+        <table class="company-table">
+          <tr><th>会社名</th><td>合同会社ROTOM（ロトム）</td></tr>
+          <tr><th>代表社員</th><td>大倉 亞門</td></tr>
+          <tr><th>設立</th><td>2025年5月</td></tr>
+          <tr><th>所在地</th><td>東京都渋谷区道玄坂1-10-8 渋谷道玄坂東急ビル2F-C</td></tr>
+          <tr><th>事業内容</th><td>インフルエンサーマーケティング／SNSマーケティング支援</td></tr>
+          <tr><th>対応エリア</th><td>全国（オンライン対応可）</td></tr>
+          <tr><th>メール</th><td><a href="mailto:info@rotom.co.jp" style="color:var(--accent)">info@rotom.co.jp</a></td></tr>
+          <tr><th>資本金</th><td>100万円</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="footer-logo">
+    <img src="ROTOM ロゴ2.png" alt="ROTOM" style="height:100px;width:auto;filter:brightness(0) invert(1);opacity:.45">
+  </a>
+  <div class="footer-links">
+    <a href="#pain">よくあるお悩み</a>
+    <a href="#solution">業務内容</a>
+    <a href="#talent">キャスティング実績</a>
+    <a href="#workflow">ご依頼の流れ</a>
+    <a href="#contact">お問い合わせ</a>
+    <a href="#company">会社概要</a>
+  </div>
+  <span class="footer-copy">© 2025 合同会社ROTOM. All rights reserved.</span>
+</footer>
+
+<script>
+// スクロールリビール
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const isOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!isOpen)item.classList.add('open');
+  });
+});
+
+
+</script>
+</body>
+</html>
