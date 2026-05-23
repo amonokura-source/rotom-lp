@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ROTOM — インフルエンサーキャスティング</title>
 
-<!-- ⑤ OGP設定 -->
 <meta property="og:title" content="ROTOM — インフルエンサーキャスティング">
 <meta property="og:description" content="広告代理店・PR会社向けのキャスティングパートナー。フォロワー数だけでは測れない信頼性と実行力を基準に、企画段階からご相談いただけます。">
 <meta property="og:image" content="ogp.png">
@@ -26,12 +25,137 @@
   --navy:#1a2e52;--navy-dark:#111e38;--blue:#2563eb;--white:#fff;
   --bg:#f7f9fc;--bg2:#eef2fb;--text:#1c2340;--text-mid:#4a5270;
   --text-light:#7a82a0;--border:#dde4f0;--accent:#2563eb;
+  --green:#16a34a;--green-dark:#15803d;--green-light:#dcfce7;
   --radius:8px;--shadow:0 2px 16px rgba(26,46,82,.07);
   --shadow-md:0 6px 32px rgba(26,46,82,.13);
   --font-ja:'Noto Sans JP',sans-serif;--font-en:'Plus Jakarta Sans',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{background:var(--white);color:var(--text);font-family:var(--font-ja);font-weight:400;line-height:1.75;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* ============================================
+   追従CTA フローティングボタン（FAB）
+   ============================================ */
+.fab-wrap {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+/* 吹き出し */
+.fab-bubble {
+  position: relative;
+  background: #fff;
+  border: 1.5px solid #86efac;
+  border-radius: 14px;
+  padding: 0.55rem 1rem;
+  font-size: .75rem;
+  color: #166534;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0,0,0,.10);
+  animation: fabBubblePop 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+/* 下向き三角（ボタンへ向ける） */
+.fab-bubble::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  right: 28px;
+  border: 5px solid transparent;
+  border-top-color: #86efac;
+}
+.fab-bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  right: 29px;
+  border: 4px solid transparent;
+  border-top-color: #fff;
+  z-index: 1;
+}
+
+/* FABボタン本体 */
+.fab-btn {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(22,163,74,.45), 0 2px 8px rgba(0,0,0,.12);
+  transition: transform .2s cubic-bezier(0.34,1.56,0.64,1), box-shadow .2s;
+  animation: fabPop 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.1s both;
+  position: relative;
+}
+.fab-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 32px rgba(22,163,74,.55), 0 4px 12px rgba(0,0,0,.15);
+}
+.fab-btn:active {
+  transform: scale(0.96);
+}
+.fab-btn-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.fab-btn-label {
+  font-size: .52rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-align: center;
+  line-height: 1.2;
+}
+/* 脈動リング */
+.fab-btn::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(22,163,74,.4);
+  animation: fabPulse 2.4s ease-in-out infinite;
+}
+
+@keyframes fabPop {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fabBubblePop {
+  from { opacity: 0; transform: translateY(6px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes fabPulse {
+  0%, 100% { opacity: 0; transform: scale(1); }
+  50%       { opacity: 1; transform: scale(1.12); }
+}
+
+@media(max-width:640px){
+  .fab-wrap {
+    bottom: 20px;
+    right: 16px;
+  }
+  .fab-btn {
+    width: 64px;
+    height: 64px;
+  }
+  .fab-bubble {
+    font-size: .7rem;
+    white-space: normal;
+    max-width: 170px;
+    text-align: right;
+  }
+}
 
 /* NAV */
 nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:62px}
@@ -146,7 +270,7 @@ section{padding:5rem 5%}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:.79rem;color:var(--text-mid);line-height:1.8;padding:0}
 .faq-item.open .faq-a{max-height:200px;padding:.3rem 0 .9rem}
 
-/* ② 料金バナー */
+/* 料金バナー */
 .price-banner{
   background:var(--bg2);border:1px solid var(--border);
   border-radius:var(--radius);padding:1rem 1.25rem;
@@ -180,7 +304,7 @@ section{padding:5rem 5%}
 .cta-name-card .title{font-size:.72rem;color:rgba(255,255,255,.45);letter-spacing:.05em;display:block;margin-bottom:.75rem}
 .cta-name-card .bio{font-size:.74rem;color:rgba(255,255,255,.55);line-height:1.75;text-align:left}
 
-/* ③ 会社概要セクション */
+/* 会社概要セクション */
 .company-section{background:var(--navy-dark);border-top:1px solid rgba(255,255,255,.08)}
 .company-section .section-label{color:rgba(255,255,255,.4)}
 .company-section .section-title{color:#fff}
@@ -197,6 +321,7 @@ section{padding:5rem 5%}
 
 /* FOOTER */
 footer{background:#0d1626;color:rgba(255,255,255,.35);padding:2rem 5%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
 .footer-logo img{height:28px;width:auto;mix-blend-mode:screen;opacity:.8}
 .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
 .footer-links a{font-size:.7rem;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s}
@@ -231,6 +356,19 @@ footer{background:#0d1626;color:rgba(255,255,255,.35);padding:2rem 5%;display:fl
 </style>
 </head>
 <body>
+
+<!-- ============================================
+     追従CTA フローティングボタン（FAB）
+     ============================================ -->
+<div class="fab-wrap">
+  <div class="fab-bubble">
+    予算、規模感に関わらず<br>　　まずは無料相談！
+  </div>
+  <a href="https://forms.gle/7syZTNM14S3VDG7Y8" target="_blank" class="fab-btn" aria-label="無料相談を申し込む">
+    <span class="fab-btn-icon"><p style="font-size: 25px;">📩</p></span>
+    <span class="fab-btn-label"><p style="font-size: 13px;">今すぐ相談</p></span>
+  </a>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -481,7 +619,6 @@ footer{background:#0d1626;color:rgba(255,255,255,.35);padding:2rem 5%;display:fl
       <div class="reveal rd2">
         <span class="section-label">FAQ</span>
         <h2 class="section-title">よくある質問</h2>
-
         <div class="faq-list">
           <div class="faq-item">
             <button class="faq-q"><span>費用の目安を教えてください。</span><span class="faq-icon">+</span></button>
@@ -522,10 +659,9 @@ footer{background:#0d1626;color:rgba(255,255,255,.35);padding:2rem 5%;display:fl
       </div>
       <span class="cta-label">Our Philosophy</span>
       <p class="cta-quote">「信頼できる人を、<br>必要な場所へ届ける」—<br>それが<em>ROTOMの存在意義</em>です。</p>
-      <p class="cta-message">インフルエンサーマーケティング市場が拡大する一方で、業界では“数字だけでは見えない信用”の重要性が高まっています。
+      <p class="cta-message">インフルエンサーマーケティング市場が拡大する一方で、業界では"数字だけでは見えない信用"の重要性が高まっています。
 ROTOMは、「この人なら安心して任せられる」という信頼まで含めて届けることを大切にしています。
 クライアント・インフルエンサー双方にとって、「また一緒に仕事をしたい」と思える継続的な関係を築き、ブランドとインフルエンサーが長く信頼関係を育んでいける出会いを生み出す存在でありたいと考えています。</p>
-
       <div class="cta-btns">
         <a href="https://forms.gle/7syZTNM14S3VDG7Y8" target="_blank" class="btn-white">お問い合わせはこちら</a>
       </div>
@@ -541,7 +677,7 @@ ROTOMは、「この人なら安心して任せられる」という信頼まで
         <p class="bio">　京都府出身。広告代理店・飲食事業を経て、現在は自身もインフルエンサーとして活動しながら、インフルエンサーマーケティング領域を中心に事業を展開。代理店・広告主・インフルエンサーという三つの立場を経験してきた中で、それぞれの視点や課題を深く理解し、現場感覚を大切にしたキャスティング・プロモーション支援を行っている。
           <br>　特にインフルエンサーの皆様とは、できる限り直接お会いすることを大切にしています。
 フォロワー数や投稿だけでは分からない、人としての誠実さや現場での空気感は、実際に会って初めて見える部分も多いと感じているためです。
-<br>　会ったことのない人同士が仕事を進めることも多い業界だからこそ、ROTOMでは“信頼して任せられる人か”を重視し、双方にとって「また一緒に仕事をしたい」と思える関係づくりを目指しています。</p>
+<br>　会ったことのない人同士が仕事を進めることも多い業界だからこそ、ROTOMでは"信頼して任せられる人か"を重視し、双方にとって「また一緒に仕事をしたい」と思える関係づくりを目指しています。</p>
       </div>
     </div>
   </div>
@@ -555,9 +691,7 @@ ROTOMは、「この人なら安心して任せられる」という信頼まで
       <h2 class="section-title">会社概要</h2>
     </div>
     <div class="company-layout reveal rd1">
-      <div class="company-logo-col">
-       
-      </div>
+      <div class="company-logo-col"></div>
       <div class="company-table-col">
         <table class="company-table">
           <tr><th>会社名</th><td>合同会社ROTOM（ロトム）</td></tr>
@@ -592,22 +726,22 @@ ROTOMは、「この人なら安心して任せられる」という信頼まで
 
 <script>
 // スクロールリビール
-const io=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
-},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: .08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // FAQ
-document.querySelectorAll('.faq-q').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const item=btn.closest('.faq-item');
-    const isOpen=item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
-    if(!isOpen)item.classList.add('open');
+document.querySelectorAll('.faq-q').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
   });
 });
-
-
 </script>
 </body>
 </html>
